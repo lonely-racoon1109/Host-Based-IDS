@@ -3,69 +3,63 @@ import time
 import subprocess
 
 class FileSource:
-    def __init__(self, file_paths):
-        self.file_paths = file_paths
-        self.valid_paths = []
-        self.sources = {}
+    def __init__(self, path):
+        self.path = path
+        self.fd = None
+        self.inode = None
 
-    def validate_sources(self):
-        print("Validating log sources...")
-        for path in self.file_paths:
-            if not path:
-                continue
-            if not os.path.exists(path):
-                print(f"[WARNING] {path} does not exist. Skipping.")
-                continue
-            if not os.access(path, os.R_OK):
-                print(f"[WARNING] No read permission: {path} — Skipping.")
-                continue
-            print(f"[OK] Valid source: {path}")
-            self.valid_paths.append(path)
+    def validate_source(self):
+        print(f"Validating : {self.path}")
+        if not self.path:
+            raise ValueError("Empty path provided.")
+        if not os.path.exists(self.path):
+            raise FileNotFoundError(f"[ERROR] {self.path} does not exist")
+            
+        if not os.access(self.path, os.R_OK):
+            raise PermissionError(f"[ERROR] No read permission: {self.path}")
+
+        print(f"[OK] Valid source: {self.path}")
         
-        if not self.valid_paths:
-            raise RuntimeError("No valid file log sources available. IDS cannot start.")
 
     def initialize(self):
-        self.validate_sources()
-        for path in self.valid_paths:
-            try:
-                fd = open(path, "r")
-                inode = os.stat(path).st_ino
+        self.validate_source()
 
-                self.sources[path] = {
-                    "fd" : fd,
-                    "inode" : inode
-                }
-                print(f"[OPENED] {path} (inode={inode})")
-            except Exception as e:
-                print(f"[ERROR] Failed to open {path}: {e}")
+        try:
+            self.fd = open(self.path, "r")
+            self.inode = os.stat(self.path).st_ino
+            print(f"[OPENED] {self.path} (inode={self.inode})")
+
+        except Exception as e:
+            print(f"[ERROR] Failed to open {self.path}: {e}")
+            raise
 
     def check_rotation(self):
-        for path in self.sources:
+        try:
+            current_inode = os.stat(path).st_ino
+        except FileNotFoundError:
+            print(f"[WARNING] {path} temporarily missing...")
+            return 
+
+        if current_inode != self.inode:
+            print(f"[ROTATION DETECTED] {self.path}")
+
             try:
-                current_inode = os.stat(path).st_ino
-            except FileNotFoundError:
-                print(f"[WARNING] {path} temporarily missing...")
-                continue
-            if current_inode != self.sources[path]["inode"]:
-                print(f"[ROTATION DETECTED] {path}")
+                self.fd.close()
+            except Exception:
+                pass
 
-                self.sources[path]["fd"].close()
+            try:
+                self.fd = open(self.path, "r")
+                self.inode = current_inode
+                print(f"[REOPENED] {self.path} (new inode={self.inode})")
+            except Exception as e:
+                print(f"[ERROR] Failed to reopen {self.path}: {e}")
 
-                try:
-                    new_fd = open(path, "r")
-                    self.sources[path]["fd"] = new_fd
-                    self.sources[path]["inode"] = current_inode
-                    print(f"[REOPENED] {path} (new inode={current_inode})")
-                except Exception as e:
-                    print(f"[ERROR] Failed to reopen {path}: {e}")
-
-    def get_names(self):
-        for source in self.sources:
-            return f"FileSource({self.sources[source]["fd"]})"
+    def get_name(self):
+        return f"FileSource({self.path})"
 
     def get_handle(self):
-        return [data["fd"] for data in self.sources.values()]
+        return self.fd
 
 class JournalSource:
     def __init__(self):
@@ -84,7 +78,7 @@ class JournalSource:
     def check_rotation(self):
         pass
 
-    def get_names(self):
+    def get_name(self):
         return "JournalSource(systemd-journal)"
 
     def get_handle(self):
@@ -103,38 +97,11 @@ class LogSourceManager:
             source.check_rotation()
 
     def get_names(self):
-        for source in self.sources:
-            source.get_names()
+        return [source.get_name() for source in self.sources]
 
     def get_handle(self):
         return [source.get_handle() for source in self.sources]
 
-if __name__ == "__main__":
-    file_source = FileSource([" ", " "])
-    journal_source = JournalSource()
 
-    manager = LogSourceManager([file_source, journal_source])
-    
-    manager.initialize_sources()
-
-    print("-----------------------------------------------")
-    print("Sources initialized.\n")
-    print(manager.sources[0])
-    print(manager.sources[1])
-    print("-----------------------------------------------")
-    
-    for source in manager.sources:
-        print(source.get_names(), end="\n\n")
-        print(f"Handle: {source.get_handle()}")
-        print("-----------------------------------------------")
-
-    print("Rotation check....")
-    while True:
-        try:
-            manager.check_sources()
-            time.sleep(2)  
-        except KeyboardInterrupt:
-            print("Stopping rotation")
-            break
 
 
