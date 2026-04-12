@@ -1,73 +1,87 @@
 import re
 from datetime import datetime
 
-
 class LogParser:
     def __init__(self):
-        self.patterns = [
+        self.event_rules = [
+            ("AUTH_FAILED", [
+                r"Failed password",
+                r"Invalid user",
+                r"authentication failure",
+                r"Connection closed by invalid user",
+                r"User unknown",
+                r"pam_faillock",
+            ]),
 
-            ("AUTH_FAILED", re.compile(
-                r'Failed password for (?:invalid user\s+)?(?P<user>\w+) from (?P<ip>[\d\.:]+)'
-            )),
+            ("AUTH_SUCCESS", [
+                r"Accepted password",
+                r"Accepted publickey"
+            ]),
 
-            ("AUTH_SUCCESS", re.compile(
-                r'Accepted \w+ for (?P<user>\w+) from (?P<ip>[\d\.:]+)'
-            )),
+            ("PRIV_ESCALATION", [
+                r"sudo:"
+            ]),
 
-            ("PRIV_ESCALATION", re.compile(
-                r'sudo: (?P<user>\w+)'
-            )),
+            ("FILE_ACCESS", [
+                r"cmd="
+            ]),
 
-            ("FILE_ACCESS", re.compile(
-                r'cmd=".*?(?P<file>/etc/\w+)"'
-            )),
+            ("KERNEL_ALERT", [
+                r"kernel:",
+                r"denied",
+                r"segfault",
+                r"audit",
+                r"overflow"
+            ])
         ]
 
-    def extract_time(self, line):
-        match = re.search(r'^\w{3}\s+\d+\s\d+:\d+:\d+', line)
-        if match:
-            try:
-                return datetime.strptime(
-                    match.group() + f" {datetime.now().year}",
-                    "%b %d %H:%M:%S %Y"
-                )
-            except:
-                return datetime.min
-        return datetime.min
+    def _match_event(self, line):
+        for event, patterns in self.event_rules:
+            if any(p.lower() in line.lower() for p in patterns):
+                return event
+        return None
+
+    def _extract_user(self, line):
+        m = re.search(r"invalid user (\w+)", line)
+        if m: return m.group(1)
+
+        m = re.search(r"for (\w+)", line)
+        if m: return m.group(1)
+
+        m = re.search(r"user (\w+)", line)
+        if m: return m.group(1)
+
+        return None
+
+    def _extract_ip(self, line):
+        m = re.search(r"from ([\d\.:]+)", line)
+        if m: return m.group(1)
+
+        m = re.search(r"rhost=([\d\.:]+)", line)
+        if m: return m.group(1)
+
+        return None
 
     def parse_line(self, line):
         date_match = re.search(r'^\w{3}\s+\d+\s\d+:\d+:\d+', line)
-
         if not date_match:
             return None
 
         try:
-            raw_date = f"{date_match.group()} {datetime.now().year}"
-            dt = datetime.strptime(raw_date, "%b %d %H:%M:%S %Y")
-            timestamp = dt.strftime("%Y-%m-%d %H:%M:%S")
-
+            dt = datetime.strptime(date_match.group() + f" {datetime.now().year}",
+                                   "%b %d %H:%M:%S %Y")
         except:
             return None
 
+        event = self._match_event(line)
+        if not event:
+            return
 
-        for event_type, pattern in self.patterns:
-            match = pattern.search(line)
-            if match:
-                data = match.groupdict()
-
-                service_match = re.search(r'\s([a-zA-Z\-]+)(?:\[\d+\])?:', line)
-                service = service_match.group(1) if service_match else "unknown"
-
-                return {
-                    "timestamp": timestamp,
-                    "event_type": event_type,
-                    "service": service,
-                    "user": data.get("user"),
-                    "ip": data.get("ip"),
-                    "extra": data
-                }
-
-        return None
-    
-    
-    
+        return {
+            "timestamp": dt.strftime("%Y-%m-%d %H:%M:%S"),
+            "event_type": event,
+            "service": re.search(r'\s([a-zA-Z\-]+)(?:\[\d+\])?:', line).group(1),
+            "user": self._extract_user(line),
+            "ip": self._extract_ip(line),
+            "raw": line.strip()
+        }

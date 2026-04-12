@@ -11,18 +11,25 @@ class FileSource:
     def validate_source(self):
         print(f"Validating : {self.path}")
         if not self.path:
-            raise ValueError("Empty path provided.")
+            print("[SKIP] Empty path")
+            return False
+
         if not os.path.exists(self.path):
-            raise FileNotFoundError(f"[ERROR] {self.path} does not exist")
-            
+            print(f"[SKIP] File does not exist: {self.path}")
+            return False
+
         if not os.access(self.path, os.R_OK):
-            raise PermissionError(f"[ERROR] No read permission: {self.path}")
+            print(f"[SKIP] No read permission: {self.path}")
+            return False
 
         print(f"[OK] Valid source: {self.path}")
+        return True
         
 
     def initialize(self):
-        self.validate_source()
+        if not self.validate_source():
+            self.fd = None
+            return 
 
         try:
             self.fd = open(self.path, "r")
@@ -31,13 +38,13 @@ class FileSource:
 
         except Exception as e:
             print(f"[ERROR] Failed to open {self.path}: {e}")
-            raise
+            self.fd = None
 
     def check_rotation(self):
         try:
             current_inode = os.stat(self.path).st_ino
         except FileNotFoundError:
-            print(f"[WARNING] {path} temporarily missing...")
+            print(f"[WARNING] {self.path} temporarily missing...")
             return 
 
         if current_inode != self.inode:
@@ -67,12 +74,15 @@ class JournalSource:
 
     def initialize(self):
         print("Journalctl starting...")
+
         self.process = subprocess.Popen(
-            ["journalctl", "-f", "-o", "json"],
+            ["journalctl", "-f", "-o", "short", "-u", "sshd", "-u", "sudo", "-p", "info..alert"],
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
-            text=True
+            text=True,
+            bufsize=0
         )
+
         print("[OPENED] JOURNAL")
     
     def check_rotation(self):
@@ -89,8 +99,14 @@ class LogSourceManager:
         self.sources = sources
 
     def initialize_sources(self):
+        active_sources = []
+
         for source in self.sources:
             source.initialize()
+            if source.get_handle() is not None:
+                active_sources.append(source)
+
+        self.sources = active_sources
 
     def check_sources(self):
         for source in self.sources:

@@ -42,14 +42,10 @@ class LogWatcher:
         return lines;
 
     def _read_stream(self, handle):
-        lines = []
-        while True:
-            line = handle.readline()
-            if not line:
-                break
-            lines.append(line)
-
-        return lines
+        line = handle.readline()
+        if line:
+            return [line]
+        return []
 
     def watch(self):
         all_lines = []
