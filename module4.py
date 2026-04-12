@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 
 
 class LogAggregator:
-    def __init__(self, window_minutes=5):
+    def __init__(self, window_minutes=1):
         self.window_minutes = window_minutes
         self.current_window = []
         self.window_start = None

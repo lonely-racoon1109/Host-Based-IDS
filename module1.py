@@ -35,7 +35,7 @@ class FileSource:
 
     def check_rotation(self):
         try:
-            current_inode = os.stat(path).st_ino
+            current_inode = os.stat(self.path).st_ino
         except FileNotFoundError:
             print(f"[WARNING] {path} temporarily missing...")
             return 

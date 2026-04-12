@@ -10,9 +10,11 @@ class LogWatcher:
         for source in self.sources:
             handle = source.get_handle()
 
-            if hasattr(handle, "seek"):
+            if hasattr(handle, "seekable") and handle.seekable():
                 handle.seek(0, os.SEEK_END)
                 self.file_offsets[handle] = handle.tell()
+            else:
+                self.file_offsets[handle] = None
 
     def _forward(self, line):
         print(line.strip())
@@ -32,26 +34,34 @@ class LogWatcher:
             return
         
         handle.seek(last_offset)
-
         lines = handle.readlines()
 
         if lines:
-            for line in lines:
-                self._forward(line)
-
             self.file_offsets[handle] = handle.tell()
 
+        return lines;
+
     def _read_stream(self, handle):
-        line = handle.readline()
-        if line:
-            self._forward(line)
+        lines = []
+        while True:
+            line = handle.readline()
+            if not line:
+                break
+            lines.append(line)
+
+        return lines
 
     def watch(self):
-        while True:
-            for source in self.sources:
-                handle = source.get_handle()
+        all_lines = []
+        for source in self.sources:
+            handle = source.get_handle()
 
-                if hasattr(handle, "seek"):
-                    self._read_file(handle)
-                else:
-                    self._read_stream(handle)
+            if hasattr(handle, "seekable") and handle.seekable():
+                lines = self._read_file(handle)
+            else:
+                lines = self._read_stream(handle)
+
+            if lines:
+                all_lines.extend(lines)
+
+        return all_lines

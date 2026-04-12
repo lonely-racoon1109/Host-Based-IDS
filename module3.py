@@ -23,6 +23,18 @@ class LogParser:
             )),
         ]
 
+    def extract_time(self, line):
+        match = re.search(r'^\w{3}\s+\d+\s\d+:\d+:\d+', line)
+        if match:
+            try:
+                return datetime.strptime(
+                    match.group() + f" {datetime.now().year}",
+                    "%b %d %H:%M:%S %Y"
+                )
+            except:
+                return datetime.min
+        return datetime.min
+
     def parse_line(self, line):
         date_match = re.search(r'^\w{3}\s+\d+\s\d+:\d+:\d+', line)
 
