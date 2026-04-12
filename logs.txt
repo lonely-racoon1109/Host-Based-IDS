@@ -1,0 +1,445 @@
+Mar 31 18:41:30 archlinux systemd[1]: Starting OpenSSH Daemon...
+Mar 31 18:41:30 archlinux sshd[759]: Server listening on 0.0.0.0 port 22.
+Mar 31 18:41:30 archlinux sshd[759]: Server listening on :: port 22.
+Mar 31 18:41:30 archlinux systemd[1]: Started OpenSSH Daemon.
+Mar 31 22:28:14 archlinux sshd[759]: Received signal 15; terminating.
+Mar 31 22:28:14 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Mar 31 22:28:14 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Mar 31 22:28:14 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot 709885bb54364834825a378fc3afde8e --
+Apr 01 16:01:32 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 01 16:01:32 archlinux sshd[720]: Server listening on 0.0.0.0 port 22.
+Apr 01 16:01:32 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 01 16:01:32 archlinux sshd[720]: Server listening on :: port 22.
+Apr 01 22:41:50 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Apr 01 22:41:50 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Apr 01 22:41:50 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot 7c15d6b6934c499d81bc4aa9227e429e --
+Apr 02 19:00:21 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 02 19:00:21 archlinux sshd[736]: Server listening on 0.0.0.0 port 22.
+Apr 02 19:00:21 archlinux sshd[736]: Server listening on :: port 22.
+Apr 02 19:00:21 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 02 22:31:49 archlinux sshd[736]: Received signal 15; terminating.
+Apr 02 22:31:49 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Apr 02 22:31:49 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Apr 02 22:31:49 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot 532a5b15f44e4927866dd010981ad32b --
+Apr 03 10:23:04 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 03 10:23:04 archlinux sshd[757]: Server listening on 0.0.0.0 port 22.
+Apr 03 10:23:04 archlinux sshd[757]: Server listening on :: port 22.
+Apr 03 10:23:04 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 03 12:23:38 archlinux sshd[757]: Received signal 15; terminating.
+Apr 03 12:23:38 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Apr 03 12:23:38 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Apr 03 12:23:38 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot a4569c4dcbd2494d9b9c6f36f06a78aa --
+Apr 03 12:24:18 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 03 12:24:18 archlinux sshd[752]: Server listening on 0.0.0.0 port 22.
+Apr 03 12:24:18 archlinux sshd[752]: Server listening on :: port 22.
+Apr 03 12:24:18 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 03 21:03:32 archlinux sshd-session[96534]: Connection closed by ::1 port 43048 [preauth]
+Apr 03 21:03:58 archlinux sshd-session[96920]: Invalid user fakeuse from ::1 port 43902
+Apr 03 21:04:05 archlinux sshd-session[96920]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:05 archlinux sshd-session[96920]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:04:05 archlinux sshd-session[96920]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
+Apr 03 21:04:05 archlinux sshd-session[96920]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:06 archlinux sshd-session[96920]: Failed password for invalid user fakeuse from ::1 port 43902 ssh2
+Apr 03 21:04:10 archlinux sshd-session[96920]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:10 archlinux sshd-session[96920]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:04:10 archlinux sshd-session[96920]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:12 archlinux sshd-session[96920]: Failed password for invalid user fakeuse from ::1 port 43902 ssh2
+Apr 03 21:04:16 archlinux sshd-session[96920]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:16 archlinux sshd-session[96920]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:04:16 archlinux sshd-session[96920]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:18 archlinux sshd-session[96920]: Failed password for invalid user fakeuse from ::1 port 43902 ssh2
+Apr 03 21:04:19 archlinux sshd-session[96920]: Connection closed by invalid user fakeuse ::1 port 43902 [preauth]
+Apr 03 21:04:19 archlinux sshd-session[96920]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
+Apr 03 21:04:35 archlinux sshd-session[96930]: Invalid user archlinux from ::1 port 39098
+Apr 03 21:04:42 archlinux sshd-session[96930]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:42 archlinux sshd-session[96930]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:04:42 archlinux sshd-session[96930]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
+Apr 03 21:04:42 archlinux sshd-session[96930]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:44 archlinux sshd-session[96930]: Failed password for invalid user archlinux from ::1 port 39098 ssh2
+Apr 03 21:04:50 archlinux sshd-session[96930]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:50 archlinux sshd-session[96930]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:04:50 archlinux sshd-session[96930]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:04:52 archlinux sshd-session[96930]: Failed password for invalid user archlinux from ::1 port 39098 ssh2
+Apr 03 21:05:04 archlinux sshd-session[96930]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:05:04 archlinux sshd-session[96930]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:05:04 archlinux sshd-session[96930]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:05:05 archlinux sshd-session[96930]: Failed password for invalid user archlinux from ::1 port 39098 ssh2
+Apr 03 21:05:06 archlinux sshd-session[96930]: Connection closed by invalid user archlinux ::1 port 39098 [preauth]
+Apr 03 21:05:06 archlinux sshd-session[96930]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
+Apr 03 21:05:47 archlinux sshd-session[96955]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1  user=shubhashree
+Apr 03 21:05:49 archlinux sshd-session[96955]: Failed password for shubhashree from ::1 port 55682 ssh2
+Apr 03 21:05:53 archlinux sshd-session[96955]: Connection closed by authenticating user shubhashree ::1 port 55682 [preauth]
+Apr 03 21:06:13 archlinux sshd-session[96964]: Invalid user archlinux from ::1 port 56600
+Apr 03 21:06:20 archlinux sshd-session[96964]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:06:20 archlinux sshd-session[96964]: pam_unix(sshd:auth): check pass; user unknown
+Apr 03 21:06:20 archlinux sshd-session[96964]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
+Apr 03 21:06:20 archlinux sshd-session[96964]: pam_faillock(sshd:auth): User unknown
+Apr 03 21:06:22 archlinux sshd-session[96964]: Failed password for invalid user archlinux from ::1 port 56600 ssh2
+Apr 03 21:06:57 archlinux sshd-session[96964]: Connection closed by invalid user archlinux ::1 port 56600 [preauth]
+Apr 03 21:07:51 archlinux sshd-session[97004]: Accepted password for shubhashree from ::1 port 35004 ssh2
+Apr 03 21:07:51 archlinux sshd-session[97004]: pam_unix(sshd:session): session opened for user shubhashree(uid=1000) by shubhashree(uid=0)
+Apr 03 22:38:47 archlinux sshd[752]: Received signal 15; terminating.
+Apr 03 22:38:47 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Apr 03 22:38:47 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Apr 03 22:38:47 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot 20e57ae22d004325a4b08c8cf2d770fc --
+Apr 04 09:46:00 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 04 09:46:00 archlinux sshd[777]: Server listening on 0.0.0.0 port 22.
+Apr 04 09:46:00 archlinux sshd[777]: Server listening on :: port 22.
+Apr 04 09:46:00 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 04 10:08:55 archlinux sshd[777]: Received signal 15; terminating.
+Apr 04 10:08:55 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Apr 04 10:08:55 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Apr 04 10:08:55 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot 2b3b9c59f7b646dfaa09acb84e83ba48 --
+Apr 04 10:18:09 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 04 10:18:09 archlinux sshd[765]: Server listening on 0.0.0.0 port 22.
+Apr 04 10:18:09 archlinux sshd[765]: Server listening on :: port 22.
+Apr 04 10:18:09 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 04 21:55:15 archlinux sshd[765]: Received signal 15; terminating.
+Apr 04 21:55:15 archlinux systemd[1]: Stopping OpenSSH Daemon...
+Apr 04 21:55:15 archlinux systemd[1]: sshd.service: Deactivated successfully.
+Apr 04 21:55:15 archlinux systemd[1]: Stopped OpenSSH Daemon.
+-- Boot 6ce07a122a384d4781d1178f0b645cf9 --
+Apr 05 09:49:29 archlinux systemd[1]: Starting OpenSSH Daemon...
+Apr 05 09:49:30 archlinux sshd[774]: Server listening on 0.0.0.0 port 22.
+Apr 05 09:49:30 archlinux sshd[774]: Server listening on :: port 22.
+Apr 05 09:49:30 archlinux systemd[1]: Started OpenSSH Daemon.
+Apr 03 13:13:48 archlinux sudo[55654]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -S --config /etc/pacman.conf -- extra/chrpath
+Apr 03 13:13:48 archlinux sudo[55654]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:13:53 archlinux sudo[55654]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:13:53 archlinux sudo[55685]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -D -q --asdeps --config /etc/pacman.conf -- chrpath
+Apr 03 13:13:53 archlinux sudo[55685]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:13:53 archlinux sudo[55685]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:14:16 archlinux sudo[61494]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -U --config /etc/pacman.conf -- /home/shubhashree/.cache/yay/mongosh-bin/mongosh-bin-2.8.2-1-x86_64.pkg.tar.zst /home/shubhashree/.cache/yay/mongosh-bin/mongosh-bin-debug-2.8.2-1-x86_64.pkg.tar.zst
+Apr 03 13:14:16 archlinux sudo[61494]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:14:20 archlinux sudo[61494]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:14:20 archlinux sudo[61501]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -D -q --asdeps --config /etc/pacman.conf -- mongosh-bin mongosh-bin-debug
+Apr 03 13:14:20 archlinux sudo[61501]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:14:20 archlinux sudo[61501]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:14:44 archlinux sudo[67502]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -U --config /etc/pacman.conf -- /home/shubhashree/.cache/yay/mongodb-bin/mongodb-bin-8.2.5-1-x86_64.pkg.tar.zst /home/shubhashree/.cache/yay/mongodb-bin/mongodb-bin-debug-8.2.5-1-x86_64.pkg.tar.zst
+Apr 03 13:14:44 archlinux sudo[67502]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:14:49 archlinux sudo[67502]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:14:49 archlinux sudo[67644]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -D --asdeps -q --config /etc/pacman.conf -- mongodb-bin-debug
+Apr 03 13:14:49 archlinux sudo[67644]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:14:49 archlinux sudo[67644]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:14:49 archlinux sudo[67649]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -D -q --asexplicit --config /etc/pacman.conf -- mongodb-bin
+Apr 03 13:14:49 archlinux sudo[67649]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:14:49 archlinux sudo[67649]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:14:49 archlinux sudo[67653]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -R -s -u --noconfirm --config /etc/pacman.conf -- chrpath
+Apr 03 13:14:49 archlinux sudo[67653]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:14:50 archlinux sudo[67653]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:15:23 archlinux sudo[67712]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/systemctl start mongodb
+Apr 03 13:15:23 archlinux sudo[67712]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:15:23 archlinux sudo[67712]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:15:34 archlinux sudo[68002]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/systemctl enable mongodb
+Apr 03 13:15:34 archlinux sudo[68002]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:15:34 archlinux sudo[68002]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:20:33 archlinux sudo[68414]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -S mongodb-database-tools
+Apr 03 13:20:33 archlinux sudo[68414]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:20:34 archlinux sudo[68414]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:20:42 archlinux sudo[68421]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -S mongoimport
+Apr 03 13:20:42 archlinux sudo[68421]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:20:42 archlinux sudo[68421]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:21:18 archlinux sudo[68433]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -Syu mongodb-database-tools
+Apr 03 13:21:18 archlinux sudo[68433]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:21:21 archlinux sudo[68433]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:24:11 archlinux sudo[78231]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -U --config /etc/pacman.conf -- /home/shubhashree/.cache/yay/mongodb-tools/mongodb-tools-1:100.15.0-1-x86_64.pkg.tar.zst /home/shubhashree/.cache/yay/mongodb-tools/mongodb-tools-debug-1:100.15.0-1-x86_64.pkg.tar.zst
+Apr 03 13:24:11 archlinux sudo[78231]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:24:43 archlinux sudo[78231]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:24:43 archlinux sudo[78254]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -D -q --asdeps --config /etc/pacman.conf -- mongodb-tools-debug
+Apr 03 13:24:43 archlinux sudo[78254]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:24:44 archlinux sudo[78254]: pam_unix(sudo:session): session closed for user root
+Apr 03 13:24:44 archlinux sudo[78259]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -D -q --asexplicit --config /etc/pacman.conf -- mongodb-tools
+Apr 03 13:24:44 archlinux sudo[78259]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 03 13:24:44 archlinux sudo[78259]: pam_unix(sudo:session): session closed for user root
+-- Boot 20e57ae22d004325a4b08c8cf2d770fc --
+Apr 04 09:51:50 archlinux sudo[8747]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/paccache -r
+Apr 04 09:51:50 archlinux sudo[8747]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 09:51:50 archlinux sudo[8747]: pam_unix(sudo:session): session closed for user root
+Apr 04 09:51:58 archlinux sudo[8833]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -Scc
+Apr 04 09:51:58 archlinux sudo[8833]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 09:52:06 archlinux sudo[8833]: pam_unix(sudo:session): session closed for user root
+Apr 04 09:52:14 archlinux sudo[8844]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -Rns -
+Apr 04 09:52:14 archlinux sudo[8844]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 09:52:14 archlinux sudo[8843]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -Qtdq
+Apr 04 09:52:14 archlinux sudo[8843]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 09:52:15 archlinux sudo[8843]: pam_unix(sudo:session): session closed for user root
+Apr 04 09:52:31 archlinux sudo[8844]: pam_unix(sudo:session): session closed for user root
+-- Boot 2b3b9c59f7b646dfaa09acb84e83ba48 --
+Apr 04 10:37:17 archlinux sudo[9828]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/mysql
+Apr 04 10:37:17 archlinux sudo[9828]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 10:37:17 archlinux sudo[9828]: pam_unix(sudo:session): session closed for user root
+Apr 04 10:37:43 archlinux sudo[9849]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/pacman -S mariadb
+Apr 04 10:37:43 archlinux sudo[9849]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 10:37:59 archlinux sudo[9849]: pam_unix(sudo:session): session closed for user root
+Apr 04 10:38:08 archlinux sudo[10031]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/systemctl start mariadb
+Apr 04 10:38:08 archlinux sudo[10031]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 10:38:08 archlinux sudo[10031]: pam_unix(sudo:session): session closed for user root
+Apr 04 10:38:15 archlinux sudo[10037]: shubhashree : TTY=pts/0 ; PWD=/home/shubhashree ; USER=root ; COMMAND=/usr/bin/systemctl enable mariadb
+Apr 04 10:38:15 archlinux sudo[10037]: pam_unix(sudo:session): session opened for user root(uid=0) by shubhashree(uid=1000)
+Apr 04 10:38:15 archlinux sudo[10037]: pam_unix(sudo:session): session closed for user root
+Apr 03 10:00:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:00:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:01:00 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.5 port 22 ssh2
+Apr 03 10:01:30 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:02:00 archlinux sshd-session[1234]: Accepted password for user1 from 172.16.0.3 port 22 ssh2
+Apr 03 10:02:30 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.10 port 22 ssh2
+Apr 03 10:03:00 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.5 port 22 ssh2
+Apr 03 10:03:30 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.10 port 22 ssh2
+Apr 03 10:04:00 archlinux sshd-session[1234]: Accepted password for user1 from 172.16.0.3 port 22 ssh2
+Apr 03 10:04:30 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.5 port 22 ssh2
+Apr 03 10:05:00 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.10 port 22 ssh2
+Apr 03 10:05:30 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.10 port 22 ssh2
+Apr 03 10:06:00 archlinux sshd-session[1234]: Accepted password for test from 192.168.1.5 port 22 ssh2
+Apr 03 10:06:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:07:00 archlinux sshd-session[1234]: Accepted password for admin from 10.0.0.2 port 22 ssh2
+Apr 03 10:07:30 archlinux sshd-session[1234]: Accepted password for guest from 172.16.0.3 port 22 ssh2
+Apr 03 10:08:00 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:08:30 archlinux sshd-session[1234]: Accepted password for user1 from 172.16.0.3 port 22 ssh2
+Apr 03 10:09:00 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.5 port 22 ssh2
+Apr 03 10:09:30 archlinux sshd-session[1234]: Accepted password for admin from 10.0.0.2 port 22 ssh2
+Apr 03 10:10:00 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.5 port 22 ssh2
+Apr 03 10:10:30 archlinux sshd-session[1234]: Accepted password for test from 10.0.0.2 port 22 ssh2
+Apr 03 10:11:00 archlinux sshd-session[1234]: Accepted password for admin from 172.16.0.3 port 22 ssh2
+Apr 03 10:11:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:12:00 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:12:30 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.5 port 22 ssh2
+Apr 03 10:13:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.10 port 22 ssh2
+Apr 03 10:13:30 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.5 port 22 ssh2
+Apr 03 10:14:00 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.5 port 22 ssh2
+Apr 03 10:14:30 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.10 port 22 ssh2
+Apr 03 10:15:00 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.10 port 22 ssh2
+Apr 03 10:15:30 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.10 port 22 ssh2
+Apr 03 10:16:00 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:16:30 archlinux sshd-session[1234]: Accepted password for test from 192.168.1.10 port 22 ssh2
+Apr 03 10:17:00 archlinux sshd-session[1234]: Accepted password for user1 from 10.0.0.2 port 22 ssh2
+Apr 03 10:17:30 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:18:00 archlinux sshd-session[1234]: Accepted password for admin from 172.16.0.3 port 22 ssh2
+Apr 03 10:18:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:19:00 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.10 port 22 ssh2
+Apr 03 10:19:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:20:00 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.5 port 22 ssh2
+Apr 03 10:20:30 archlinux sshd-session[1234]: Accepted password for user1 from 10.0.0.2 port 22 ssh2
+Apr 03 10:21:00 archlinux sshd-session[1234]: Accepted password for admin from 172.16.0.3 port 22 ssh2
+Apr 03 10:21:30 archlinux sshd-session[1234]: Accepted password for guest from 172.16.0.3 port 22 ssh2
+Apr 03 10:22:00 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:22:30 archlinux sshd-session[1234]: Accepted password for user2 from 10.0.0.2 port 22 ssh2
+Apr 03 10:23:00 archlinux sshd-session[1234]: Accepted password for root from 172.16.0.3 port 22 ssh2
+Apr 03 10:23:30 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.5 port 22 ssh2
+Apr 03 10:24:00 archlinux sshd-session[1234]: Accepted password for admin from 10.0.0.2 port 22 ssh2
+Apr 03 10:24:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:25:00 archlinux sshd-session[1234]: Accepted password for guest from 10.0.0.2 port 22 ssh2
+Apr 03 10:25:30 archlinux sshd-session[1234]: Accepted password for guest from 10.0.0.2 port 22 ssh2
+Apr 03 10:26:00 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:26:30 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.5 port 22 ssh2
+Apr 03 10:27:00 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.5 port 22 ssh2
+Apr 03 10:27:30 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.10 port 22 ssh2
+Apr 03 10:28:00 archlinux sshd-session[1234]: Accepted password for guest from 172.16.0.3 port 22 ssh2
+Apr 03 10:28:30 archlinux sshd-session[1234]: Accepted password for guest from 172.16.0.3 port 22 ssh2
+Apr 03 10:29:00 archlinux sshd-session[1234]: Accepted password for test from 172.16.0.3 port 22 ssh2
+Apr 03 10:29:30 archlinux sshd-session[1234]: Accepted password for test from 10.0.0.2 port 22 ssh2
+Apr 03 10:30:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:30:30 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.10 port 22 ssh2
+Apr 03 10:31:00 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.10 port 22 ssh2
+Apr 03 10:31:30 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:32:00 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:32:30 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.10 port 22 ssh2
+Apr 03 10:33:00 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:33:30 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.10 port 22 ssh2
+Apr 03 10:34:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.10 port 22 ssh2
+Apr 03 10:34:30 archlinux sshd-session[1234]: Accepted password for guest from 10.0.0.2 port 22 ssh2
+Apr 03 10:35:00 archlinux sshd-session[1234]: Accepted password for user1 from 10.0.0.2 port 22 ssh2
+Apr 03 10:35:30 archlinux sshd-session[1234]: Accepted password for test from 10.0.0.2 port 22 ssh2
+Apr 03 10:36:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:36:30 archlinux sshd-session[1234]: Accepted password for user1 from 192.168.1.5 port 22 ssh2
+Apr 03 10:37:00 archlinux sshd-session[1234]: Accepted password for test from 192.168.1.5 port 22 ssh2
+Apr 03 10:37:30 archlinux sshd-session[1234]: Accepted password for user1 from 10.0.0.2 port 22 ssh2
+Apr 03 10:38:00 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:38:30 archlinux sshd-session[1234]: Accepted password for admin from 192.168.1.5 port 22 ssh2
+Apr 03 10:39:00 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:39:30 archlinux sshd-session[1234]: Accepted password for user1 from 172.16.0.3 port 22 ssh2
+Apr 03 10:40:00 archlinux sshd-session[1234]: Accepted password for root from 10.0.0.2 port 22 ssh2
+Apr 03 10:40:30 archlinux sshd-session[1234]: Accepted password for test from 10.0.0.2 port 22 ssh2
+Apr 03 10:41:00 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:41:30 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.10 port 22 ssh2
+Apr 03 10:42:00 archlinux sshd-session[1234]: Accepted password for user1 from 172.16.0.3 port 22 ssh2
+Apr 03 10:42:30 archlinux sshd-session[1234]: Accepted password for guest from 10.0.0.2 port 22 ssh2
+Apr 03 10:43:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:43:30 archlinux sshd-session[1234]: Accepted password for admin from 172.16.0.3 port 22 ssh2
+Apr 03 10:44:00 archlinux sshd-session[1234]: Accepted password for test from 192.168.1.5 port 22 ssh2
+Apr 03 10:44:30 archlinux sshd-session[1234]: Accepted password for user2 from 172.16.0.3 port 22 ssh2
+Apr 03 10:45:00 archlinux sshd-session[1234]: Accepted password for guest from 192.168.1.5 port 22 ssh2
+Apr 03 10:45:30 archlinux sshd-session[1234]: Accepted password for root from 172.16.0.3 port 22 ssh2
+Apr 03 10:46:00 archlinux sshd-session[1234]: Accepted password for test from 172.16.0.3 port 22 ssh2
+Apr 03 10:46:30 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:47:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:47:30 archlinux sshd-session[1234]: Accepted password for root from 192.168.1.5 port 22 ssh2
+Apr 03 10:48:00 archlinux sshd-session[1234]: Accepted password for user2 from 192.168.1.5 port 22 ssh2
+Apr 03 10:48:30 archlinux sshd-session[1234]: Accepted password for user1 from 172.16.0.3 port 22 ssh2
+Apr 03 10:49:00 archlinux sshd-session[1234]: Accepted password for test from 192.168.1.10 port 22 ssh2
+Apr 03 10:49:30 archlinux sshd-session[1234]: Accepted password for guest from 10.0.0.2 port 22 ssh2
+Apr 03 11:23:20 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:25 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:30 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:35 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:40 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:45 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:50 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:23:55 archlinux sshd-session[9999]: Failed password for guest from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:00 archlinux sshd-session[9999]: Failed password for guest from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:05 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:10 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:15 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:20 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:25 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:30 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:35 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:40 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:45 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:50 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:24:55 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:00 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:05 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:10 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:15 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:20 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:25 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:30 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:35 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:40 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:45 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:50 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 11:25:55 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:00 archlinux sshd-session[9999]: Failed password for guest from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:05 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:10 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:15 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:20 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:25 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:30 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:35 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:40 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:45 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:50 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:26:55 archlinux sshd-session[9999]: Failed password for user2 from 1.1.1.1 port 22 ssh2
+Apr 03 11:27:00 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:27:05 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:27:10 archlinux sshd-session[9999]: Failed password for test from 1.1.1.1 port 22 ssh2
+Apr 03 11:27:15 archlinux sshd-session[9999]: Failed password for admin from 1.1.1.1 port 22 ssh2
+Apr 03 11:27:20 archlinux sshd-session[9999]: Failed password for user1 from 1.1.1.1 port 22 ssh2
+Apr 03 11:27:25 archlinux sshd-session[9999]: Failed password for root from 1.1.1.1 port 22 ssh2
+Apr 03 12:13:20 archlinux sshd-session[8888]: Failed password for invalid user root from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:25 archlinux sshd-session[8888]: Failed password for invalid user admin from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:30 archlinux sshd-session[8888]: Failed password for invalid user user1 from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:35 archlinux sshd-session[8888]: Failed password for invalid user user2 from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:40 archlinux sshd-session[8888]: Failed password for invalid user test from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:45 archlinux sshd-session[8888]: Failed password for invalid user guest from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:50 archlinux sshd-session[8888]: Failed password for invalid user root from 2.2.2.2 port 22 ssh2
+Apr 03 12:13:55 archlinux sshd-session[8888]: Failed password for invalid user admin from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:00 archlinux sshd-session[8888]: Failed password for invalid user user1 from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:05 archlinux sshd-session[8888]: Failed password for invalid user user2 from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:10 archlinux sshd-session[8888]: Failed password for invalid user test from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:15 archlinux sshd-session[8888]: Failed password for invalid user guest from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:20 archlinux sshd-session[8888]: Failed password for invalid user root from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:25 archlinux sshd-session[8888]: Failed password for invalid user admin from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:30 archlinux sshd-session[8888]: Failed password for invalid user user1 from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:35 archlinux sshd-session[8888]: Failed password for invalid user user2 from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:40 archlinux sshd-session[8888]: Failed password for invalid user test from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:45 archlinux sshd-session[8888]: Failed password for invalid user guest from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:50 archlinux sshd-session[8888]: Failed password for invalid user root from 2.2.2.2 port 22 ssh2
+Apr 03 12:14:55 archlinux sshd-session[8888]: Failed password for invalid user admin from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:00 archlinux sshd-session[8888]: Failed password for invalid user user1 from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:05 archlinux sshd-session[8888]: Failed password for invalid user user2 from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:10 archlinux sshd-session[8888]: Failed password for invalid user test from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:15 archlinux sshd-session[8888]: Failed password for invalid user guest from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:20 archlinux sshd-session[8888]: Failed password for invalid user root from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:25 archlinux sshd-session[8888]: Failed password for invalid user admin from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:30 archlinux sshd-session[8888]: Failed password for invalid user user1 from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:35 archlinux sshd-session[8888]: Failed password for invalid user user2 from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:40 archlinux sshd-session[8888]: Failed password for invalid user test from 2.2.2.2 port 22 ssh2
+Apr 03 12:15:45 archlinux sshd-session[8888]: Failed password for invalid user guest from 2.2.2.2 port 22 ssh2
+Apr 03 12:46:40 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:47:00 archlinux sudo: guest : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:47:20 archlinux sudo: admin : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:47:40 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:48:00 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:48:20 archlinux sudo: guest : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:48:40 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:49:00 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:49:20 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:49:40 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:50:00 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:50:20 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:50:40 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:51:00 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:51:20 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:51:40 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:52:00 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:52:20 archlinux sudo: admin : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:52:40 archlinux sudo: root : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:53:00 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:53:20 archlinux sudo: guest : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:53:40 archlinux sudo: guest : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:54:00 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:54:20 archlinux sudo: root : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:54:40 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:55:00 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:55:20 archlinux sudo: guest : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:55:40 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:56:00 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:56:20 archlinux sudo: root : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:56:40 archlinux sudo: user2 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:57:00 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:57:20 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:57:40 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:58:00 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:58:20 archlinux sudo: guest : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:58:40 archlinux sudo: user1 : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:59:00 archlinux sudo: test : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:59:20 archlinux sudo: root : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 12:59:40 archlinux sudo: admin : TTY=pts/0 ; COMMAND=/bin/bash
+Apr 03 13:20:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:20:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:20:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:20:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:21:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:21:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:21:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:21:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:22:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:22:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:22:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:22:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:23:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:23:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:23:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:23:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:24:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:24:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:24:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:24:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:25:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:25:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:25:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:25:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:26:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:26:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:26:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:26:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:27:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:27:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:27:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:27:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:28:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:28:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:28:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:28:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:29:00 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
+Apr 03 13:29:15 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/hosts"
+Apr 03 13:29:30 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/passwd"
+Apr 03 13:29:45 archlinux audit: USER_CMD pid=1234 uid=1000 cmd="cat /etc/shadow"
