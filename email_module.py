@@ -1,24 +1,47 @@
 import smtplib
 from email.mime.text import MIMEText
 
-def send_alert_email(summary, features, result):
+def format_shap(top_features):
+    lines = []
+    for name, value in top_features:
+        direction = "↑ increases anomaly" if value > 0 else "↓ reduces anomaly"
+        lines.append(f"{name}: {round(value,4)} ({direction})")
+    return "\n".join(lines)
+
+
+def send_alert_email(summary, features, prediction, score, shap_features):
     sender = "shubhashree.bhore@nmiet.edu.in"
     password = "jrbs vanz izcn vfpc"   # NOT your normal password
     receiver = "iamshubhashree505@gmail.com"
 
-    subject = "🚨 IDS ALERT: Anomaly Detected, Secure your device"
+    subject = f"🚨 IDS ALERT: {prediction} Detected"
+
+    shap_text = format_shap(shap_features)
 
     body = f"""
-Anomaly detected in Host-based IDS
+    ⚠️ Intrusion Detection Alert
 
-Result: {result}
+    Prediction: {prediction}
+    Anomaly Score: {round(score, 4)}
 
-Summary:
-{summary}
+    ----------------------------------
+    Top Contributing Factors (SHAP)
+    ----------------------------------
+    {shap_text}
 
-Features:
-{features}
-"""
+    ----------------------------------
+    Window Summary
+    ----------------------------------
+    Failed Logins: {summary.get("failed_logins")}
+    Successful Logins: {summary.get("successful_logins")}
+    Unique IPs: {summary.get("unique_ips")}
+    Users Targeted: {summary.get("users_targeted")}
+
+    ----------------------------------
+    Raw Features
+    ----------------------------------
+    {features}
+    """
 
     msg = MIMEText(body)
     msg["Subject"] = subject

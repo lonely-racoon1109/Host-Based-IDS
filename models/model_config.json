@@ -1,0 +1,31 @@
+{
+  "threshold": -0.01612429396613002,
+  "features": [
+    "failed_logins",
+    "successful_logins",
+    "priv_escalations",
+    "file_access_events",
+    "kernel_alerts",
+    "auth_ratio",
+    "unique_ips",
+    "failed_per_ip",
+    "users_count",
+    "privileged_user_targeted",
+    "multiple_failed_users_flag",
+    "priv_after_failure_flag",
+    "svc_sshd",
+    "svc_sudo",
+    "svc_kernel",
+    "hour",
+    "day_of_week",
+    "is_night",
+    "is_weekend",
+    "sensitive_file_access",
+    "suspicious_command_flag",
+    "weird_behavior_flag",
+    "failed_to_success_sequence",
+    "ip_entropy",
+    "failed_burst",
+    "failed_density"
+  ]
+}

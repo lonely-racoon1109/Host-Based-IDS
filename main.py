@@ -1,111 +1,174 @@
-from module1 import FileSource, JournalSource, LogSourceManager
-from module2 import LogWatcher
-from module5 import FeatureExtractor
-from module3 import LogParser
-from module4 import LogAggregator
-from module7 import AnomalyDetector
+from datetime import datetime, timedelta
+import time
+import numpy as np
+
+from logSources import FileSource, JournalSource, LogSourceManager
+from logWatcher import LogWatcher
+from logParser import LogParser, _SYSLOG_TS_RE
+from logAggregator import LogAggregator
+from featureExtractor import FeatureExtractor, FEATURE_COLUMNS
+from anomalyDetector import AnomalyDetector, ShapExplainer
 from email_module import send_alert_email
 
+import joblib
 import json
-import re
-from datetime import datetime
-import time
+import csv
+import os
 
-dataset = "dummy.json"
-file1 = FileSource("synthetic_logs.txt")  #log file
-journal = JournalSource()
 
-manager = LogSourceManager([journal])
+LOG_FILE = os.path.join(os.path.dirname(__file__), "ids_log.csv")
 
+# for u in root admin test user guest; do
+#   ssh $u@localhost
+# done
+
+# --------------------------------------------------
+# 1. Load model
+# --------------------------------------------------
+
+model = joblib.load("models/isolation_forest.joblib")
+scaler = joblib.load("models/scaler.joblib")
+
+with open("models/model_config.json") as f:
+    config = json.load(f)
+
+FEATURE_COLS = FEATURE_COLUMNS[:24]
+THRESHOLD = config["threshold"]
+
+print("[INFO] Model loaded")
+
+
+file_exists = os.path.isfile("ids_log.csv")
+# --------------------------------------------------
+# 2. Setup pipeline
+# --------------------------------------------------
+filesource = FileSource("/var/log/sudo.log")
+journal = JournalSource(
+    units=["sshd", "sudo", "su", "polkit", "systemd-logind"]
+)
+
+manager = LogSourceManager([filesource, journal])
 manager.initialize_sources()
 
-print("-----------------------------------------------")
-print("Sources initialized.\n")
-for source in manager.sources:
-    print(source)
-print("-----------------------------------------------")
+watcher = LogWatcher(manager)
+watcher.initialize_offsets()
 
-# for source in manager.sources:
-#     print(source.get_name(), end="\n\n")
-#     print(f"Handle: {source.get_handle()}")
-#     print("-----------------------------------------------")
-
-# print("Rotation check in background....")
-# while True:
-#     try:
-#         manager.check_sources()
-#         time.sleep(2)  
-#     except KeyboardInterrupt:
-#         print("Stopping rotation")
-#         break
-
-    
 parser = LogParser()
 aggregator = LogAggregator(window_minutes=1)
 extractor = FeatureExtractor()
 detector = AnomalyDetector()
+explainer = ShapExplainer(model)
 
-watcher = LogWatcher(manager.sources)
-watcher.initialize_offsets()
+print("\n[INFO] IDS running...\n")
 
-print("IDS has started running....")
+
+# --------------------------------------------------
+# 3. Prediction
+# --------------------------------------------------
+def override(features, label, score):
+    if features["failed_logins"] >= 10:
+        return "ANOMALY", score + 0.4
+
+    if features["users_count"] >= 4:
+        return "ANOMALY", score + 0.4
+
+    if features["failed_burst"] > 0.6:
+        return "ANOMALY", score + 0.5
+
+    return label, score
+
+def predict(features_dict):
+    # 🔥 FORCE EXACT 24 FEATURES (MATCH TRAINED MODEL)
+    aligned = [features_dict.get(c, 0) for c in FEATURE_COLS]
+
+    # trim extra features
+    aligned = aligned[:24]
+
+    x = np.array(aligned).reshape(1, -1)
+
+    print("X shape:", x.shape)  # should be (1, 24)
+
+    x_scaled = scaler.transform(x)
+
+    score = -model.decision_function(x_scaled)[0]
+    label = "ANOMALY" if score >= THRESHOLD else "NORMAL"
+
+    return label, score
+
+# --------------------------------------------------
+# 4. MAIN LOOP (FIXED)
+# --------------------------------------------------
 
 while True:
     try:
-        manager.check_sources() 
-        new_lines = watcher.watch()
-        print("RAW:", new_lines)
+        manager.check_sources()
+        new_lines = watcher.collect()
 
-        for line in new_lines:
+        for _, line in new_lines:
+            print("[RAW]", line)
+
             parsed = parser.parse_line(line)
 
-            print("PARSED:", parsed)
-
-            if parsed is None:
+            if not parsed:
                 continue
 
-            summary = aggregator.add_log(parsed)
+            print(f"[EVENT][{parsed['timestamp']}] {parsed['event_type']} {parsed['service']}")
 
+            parsed["service"] = (
+                "sshd" if "sshd" in parsed.get("service", "")
+                else "sudo" if "sudo" in parsed.get("service", "")
+                else "kernel" if "kernel" in parsed.get("service", "")
+                else "polkit" if "polkit" in parsed.get("service", "")
+                else parsed.get("service")
+            )
+            result = aggregator.add_event(parsed)
 
-# with open("synthetic_logs.txt", "r") as f:
-#     lines = f.readlines()
+            if result:
+                # result can be list OR single dict
+                if isinstance(result, list):
+                    summaries = result
+                else:
+                    summaries = [result]
 
-# lines.sort(key=parser.extract_time)
+                for summary in summaries:
+                    features, raw = extractor.extract(summary)
 
+                    prediction, score = predict(features)
+                    prediction, score = override(features, prediction, score)
 
-            if summary:
-                features, raw = extractor.extract(summary)
-                result = detector.predict(features)
+                    with open(LOG_FILE, "a", newline="") as f:
+                        writer = csv.DictWriter(f, fieldnames=[
+                            "timestamp", "score", "label", "service", "user", "ip"
+                        ])
 
-                print("\n=== IDS OUTPUT ===")
-                print("Summary:", raw)
-                print("Features:", features)
-                print("Prediction:", result)
+                        if f.tell() == 0:
+                            writer.writeheader()
 
-                if result == "ANOMALY":
-                    print("🚨 ALERT: Suspicious activity detected!")
-                    send_alert_email(raw, features, result)
-                print("-" * 50)
-        
+                        writer.writerow({
+                            "timestamp": summary["window_start"].isoformat(),
+                            "score": float(score),
+                            "label": prediction,
+                            "service": summary.get("dominant_service", "unknown"),
+                            "user": ",".join(summary.get("users_targeted", [])),
+                            "ip": ",".join(summary.get("ip_list", [])),
+                        })
+
+                    print("\n=== IDS OUTPUT ===")
+                    print("Prediction:", prediction)
+                    print("Score:", round(score, 4))
+
+                    if prediction == "ANOMALY":
+                        top_features = explainer.explain(features, FEATURE_COLS)
+
+                        send_alert_email(
+                            summary=summary,
+                            features=features,
+                            prediction=prediction,
+                            score=score,
+                            shap_features=top_features
+                        )
+
         time.sleep(1)
 
     except KeyboardInterrupt:
-        print("\nStopping IDS...")
         break
-
-# flush remaining
-final = aggregator.flush()
-if final:
-    features, raw = extractor.extract(final)
-    result = detector.predict(features)
-
-    print("\nFINAL WINDOW")
-    print("Prediction:", result)
-
-# features_only = [entry["features"] for entry in dataset]
-
-# with open("features_only.json", "w") as f:
-#     json.dump(features_only, f, indent=4)
-
-# with open("features.json", "w") as f:
-#     json.dump(dataset, f, separators=(",", ":"))
