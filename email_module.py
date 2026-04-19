@@ -10,9 +10,9 @@ def format_shap(top_features):
 
 
 def send_alert_email(summary, features, prediction, score, shap_features):
-    sender = "shubhashree.bhore@nmiet.edu.in"
-    password = "jrbs vanz izcn vfpc"   # NOT your normal password
-    receiver = "iamshubhashree505@gmail.com"
+    sender = ""
+    password = ""   
+    receiver = ""
 
     subject = f"🚨 IDS ALERT: {prediction} Detected"
 
